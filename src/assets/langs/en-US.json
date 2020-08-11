@@ -1,0 +1,23 @@
+{
+    "Choose language": "Choose language",
+    "Welcome!": "Welcome!",
+    "Bangla": "Bangla",
+    "Search flight": "Search flight",
+    "Departure airport code": "Departure airport code",
+    "Arrival airport code": "Arrival airport code",
+    "Departure date": "Departure date",
+    "Return date": "Return date",
+    "Search": "Search",
+    "Please search for flight information": "Please search for flight information",
+    "Search flight by Airline name": "Search flight by Airline name",
+    "SL": "SL",
+    "Airline logo": "Airline logo",
+    "Outbound flight duration": "Outbound flight duration",
+    "Airline name": "Airline name",
+    "Inbound flight duration": "Inbound flight duration",
+    "Total amount in USD": "Total amount in USD",
+    "Departure airport code is required with three alphanumeric character": "Departure airport code is required with three alphanumeric character",
+    "Arrival airport code is required with three alphanumeric character": "Arrival airport code is required with three alphanumeric character",
+    "Please provide departure date": "Please provide departure date",
+    "Please provide return date": "Please provide return date"
+}

@@ -1,0 +1,23 @@
+{
+	"Choose language": "ভাষা নির্বাচন করুন",
+	"Welcome!": "স্বাগত!",
+	"Bangla": "বাংলা",
+	"Search flight": "ফ্লাইট অনুসন্ধান করুন",
+	"Departure airport code": "প্রস্থান বিমানবন্দর কোড",
+	"Arrival airport code": "আগমন বিমানবন্দর কোড",
+	"Departure date": "প্রস্থান তারিখ",
+	"Return date": "ফেরার তারিখ",
+	"Search": "অনুসন্ধান করুন",
+	"Please search for flight information": "বিমানের তথ্য অনুসন্ধান করুন",
+	"Search flight by Airline name": "এয়ারলাইনের নাম অনুসারে বিমানটি অনুসন্ধান করুন",
+	"SL": "ক্রমিক",
+	"Airline logo": "এয়ারলাইনের লোগো",
+	"Outbound flight duration": "বহির্মুখী বিমানের সময়কাল",
+	"Airline name": "এয়ারলাইনের নাম",
+	"Inbound flight duration": "অন্তর্মুখী বিমানের সময়কাল",
+	"Total amount in USD": "মোট পরিমাণ মার্কিন ডলার",
+	"Departure airport code is required with three alphanumeric character": "প্রস্থান বিমানবন্দর কোডটি তিনটি বর্ণানুক্রমিক অক্ষরের সাথে প্রয়োজনীয়",
+	"Arrival airport code is required with three alphanumeric character": "তিনটি বর্ণানুক্রমিক অক্ষরের সাথে আগত বিমানবন্দর কোড প্রয়োজন",
+	"Please provide departure date": "প্রস্থান তারিখ প্রদান করুন",
+	"Please provide return date": "ফিরে আসার তারিখ সরবরাহ করুন"
+}

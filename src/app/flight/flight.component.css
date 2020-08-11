@@ -1,0 +1,16 @@
+tr:last-child {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.center {
+    text-align: center;
+}
+
+.flight-img {
+    width: 30px;
+    height: 25px;
+}
+
+.pagination {
+    margin-left: -50px;
+}

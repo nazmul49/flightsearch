@@ -1,0 +1,116 @@
+<main class="container">
+
+    <div class="row" style="margin-top: 70px;">
+        <div class="col-md-2">
+            <div class="form-group">
+                <select class="form-control" name="lang" [(ngModel)]="selectLang" (click)="changeLng()">
+                    <option value="en-US">English</option>
+                    <option value="bn-BD">{{ 'Bangla' | i18n }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card mb-3 shadow">
+        <div class="card-header">
+            <a class="fit float-left" data-toggle="collapse" href="#collapseExample" role="button" id="collapseIconId"
+                (click)="toggleIcon();">
+                {{ 'Search flight' | i18n }} <i *ngIf="collapse" class="fa fa-chevron-down" aria-hidden="true"></i>
+                <i *ngIf="!collapse" class="fa fa-chevron-up" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="collapse hide" id="collapseExample">
+            <div class="card-body">
+                <form [formGroup]="flightSearchForm" (ngSubmit)="onSearchFlightSubmit();">
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label>{{ 'Departure airport code' | i18n }}</label>
+                            <input type="text" class="form-control" formControlName="departureAirportCode"
+                                [class.is-invalid]="flightSearchForm.get('departureAirportCode').invalid && flightSearchForm.get('departureAirportCode').touched">
+                            <small class="text-danger"
+                                [class.d-none]="flightSearchForm.get('departureAirportCode').valid || flightSearchForm.get('departureAirportCode').untouched">
+                                {{ 'Departure airport code is required with three alphanumeric character' | i18n}}
+                            </small>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{{ 'Arrival airport code' | i18n }}</label>
+                            <input type="text" class="form-control" formControlName="arrivalAirportCode"
+                                [class.is-invalid]="flightSearchForm.get('arrivalAirportCode').invalid && flightSearchForm.get('arrivalAirportCode').touched">
+                            <small class="text-danger"
+                                [class.d-none]="flightSearchForm.get('arrivalAirportCode').valid || flightSearchForm.get('arrivalAirportCode').untouched">
+                                {{ 'Arrival airport code is required with three alphanumeric character' | i18n}}
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label>{{ 'Departure date' | i18n }}</label>
+                            <input type="date" class="form-control" formControlName="departureDate"
+                                [class.is-invalid]="flightSearchForm.get('departureDate').invalid && flightSearchForm.get('departureDate').touched">
+                            <small class="text-danger"
+                                [class.d-none]="flightSearchForm.get('departureDate').valid || flightSearchForm.get('departureDate').untouched">
+                                {{ 'Please provide departure date' | i18n}}
+                            </small>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>{{ 'Return date' | i18n}}</label>
+                            <input type="date" class="form-control" formControlName="returnDate"
+                                [class.is-invalid]="flightSearchForm.get('returnDate').invalid && flightSearchForm.get('returnDate').touched">
+                            <small class="text-danger"
+                                [class.d-none]="flightSearchForm.get('returnDate').valid || flightSearchForm.get('returnDate').untouched">
+                                {{ 'Please provide return date' | i18n}}
+                            </small>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <button type="submit" class="btn btn-primary">{{ 'Search' | i18n }}</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <input *ngIf="flights.length > 0" type="text" class="form-control shadow mb-2" [(ngModel)]="searchText"
+        placeholder="{{ 'Search flight by Airline name' | i18n }}">
+
+    <div class="card shadow bg-white">
+        <div class="card-body">
+            <div *ngIf="flights.length > 0" class="table-responsive">
+                <table class="table table-hover table-condensed table-sm">
+                    <thead>
+                        <tr>
+                            <th>{{ 'SL' | i18n}}</th>
+                            <th class="center">{{ 'Airline logo' | i18n }}</th>
+                            <th>{{ 'Airline name' | i18n}}</th>
+                            <th class="center">{{ 'Outbound flight duration' | i18n }}</th>
+                            <th class="center">{{ 'Inbound flight duration' | i18n }}</th>
+                            <th class="center">{{ 'Total amount in USD' | i18n}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="let flight of flights | searchFilter: searchText | paginate: { itemsPerPage: pageSize, currentPage: p }; index as index;">
+                            <td>{{(p-1) * pageSize + index + 1}}</td>
+                            <td class="center">
+                                <img [src]="flight.AirlineLogoAddress" class="flight-img">
+                            </td>
+                            <td>{{flight.AirlineName}}</td>
+                            <td class="center">{{flight.OutboundFlightsDuration}}</td>
+                            <td class="center">{{flight.InboundFlightsDuration}}</td>
+                            <td class="center">{{flight.TotalAmount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+            </div>
+
+            <div *ngIf="flights.length == 0">
+                {{ 'Please search for flight information' | i18n }}
+            </div>
+        </div>
+    </div>
+</main>
